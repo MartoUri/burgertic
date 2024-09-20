@@ -1,0 +1,135 @@
+### Registro de Usuario
+POST http://localhost:9000/auth/register
+Content-Type: application/json
+
+{
+    "nombre": "dan",
+    "apellido": "segal",
+    "email": "dan@gmail.com",
+    "password": "123456"
+}
+
+###
+
+### Inicio de Sesión
+POST http://localhost:9000/auth/login
+Content-Type: application/json
+
+{
+    "email": "dan@gmail.com",
+    "password": "123456"
+}
+
+###
+
+### Obtener Todos los Platos
+GET http://localhost:9000/platos
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwiaWF0IjoxNzI2ODQxMDk3LCJleHAiOjE3MjY4NDQ2OTd9.wvNEkNBzWeSifcjyBO5K2aNK_EH8SF2rS8ASrHk92B0
+
+###
+
+### Obtener Plato por ID
+GET http://localhost:9000/platos/1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwiaWF0IjoxNzI2ODQxMDk3LCJleHAiOjE3MjY4NDQ2OTd9.wvNEkNBzWeSifcjyBO5K2aNK_EH8SF2rS8ASrHk92B0
+
+###
+
+### Obtener Platos por Tipo
+GET http://localhost:9000/platos/tipo/principal
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwiaWF0IjoxNzI2ODQxMDk3LCJleHAiOjE3MjY4NDQ2OTd9.wvNEkNBzWeSifcjyBO5K2aNK_EH8SF2rS8ASrHk92B0
+
+###
+
+### Crear Plato (Solo Admin)
+POST http://localhost:9000/platos
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwiaWF0IjoxNzI2ODQxMDk3LCJleHAiOjE3MjY4NDQ2OTd9.wvNEkNBzWeSifcjyBO5K2aNK_EH8SF2rS8ASrHk92B0
+
+{
+    "tipo": "combo",
+    "nombre": "Combo Big Burger",
+    "precio": 500,
+    "descripcion": "Combo de hamburguesa con papas y bebida"
+}
+
+###
+
+### Modificar Plato (Solo Admin)
+PUT http://localhost:9000/platos/1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwiaWF0IjoxNzI2ODQxMDk3LCJleHAiOjE3MjY4NDQ2OTd9.wvNEkNBzWeSifcjyBO5K2aNK_EH8SF2rS8ASrHk92B0
+
+{
+    "tipo": "combo",
+    "nombre": "Combo Doble Big Burger",
+    "precio": 600,
+    "descripcion": "Combo con hamburguesa doble, papas y bebida"
+}
+
+###
+
+### Eliminar Plato (Solo Admin)
+DELETE http://localhost:9000/platos/7
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwiaWF0IjoxNzI2ODQxMDk3LCJleHAiOjE3MjY4NDQ2OTd9.wvNEkNBzWeSifcjyBO5K2aNK_EH8SF2rS8ASrHk92B0
+
+###
+
+### Obtener Todos los Pedidos (Solo Admin)
+GET http://localhost:9000/pedidos
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwiaWF0IjoxNzI2ODQxMDk3LCJleHAiOjE3MjY4NDQ2OTd9.wvNEkNBzWeSifcjyBO5K2aNK_EH8SF2rS8ASrHk92B0
+
+###
+
+### Obtener Pedidos del Usuario
+GET http://localhost:9000/pedidos/usuario
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwiaWF0IjoxNzI2ODQxMDk3LCJleHAiOjE3MjY4NDQ2OTd9.wvNEkNBzWeSifcjyBO5K2aNK_EH8SF2rS8ASrHk92B0
+
+###
+
+### Obtener Pedido por ID (Solo Admin)
+GET http://localhost:9000/pedidos/2
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwiaWF0IjoxNzI2ODQxMDk3LCJleHAiOjE3MjY4NDQ2OTd9.wvNEkNBzWeSifcjyBO5K2aNK_EH8SF2rS8ASrHk92B0
+
+###
+
+### Crear Pedido
+POST http://localhost:9000/pedidos
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwiaWF0IjoxNzI2ODQxMDk3LCJleHAiOjE3MjY4NDQ2OTd9.wvNEkNBzWeSifcjyBO5K2aNK_EH8SF2rS8ASrHk92B0
+
+{
+    "platos": [
+        {
+            "id": 1,
+            "cantidad": 2
+        },
+        {
+            "id": 2,
+            "cantidad": 1
+        }
+    ]
+}
+
+###
+
+### Aceptar Pedido (Solo Admin)
+PUT http://localhost:9000/pedidos/5/aceptar
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwiaWF0IjoxNzI2ODQxMDk3LCJleHAiOjE3MjY4NDQ2OTd9.wvNEkNBzWeSifcjyBO5K2aNK_EH8SF2rS8ASrHk92B0
+
+###
+
+### Comenzar Pedido (Solo Admin)
+PUT http://localhost:9000/pedidos/2/comenzar
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwiaWF0IjoxNzI2ODQxMDk3LCJleHAiOjE3MjY4NDQ2OTd9.wvNEkNBzWeSifcjyBO5K2aNK_EH8SF2rS8ASrHk92B0
+
+###
+
+### Entregar Pedido (Solo Admin)
+PUT http://localhost:9000/pedidos/2/entregar
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwiaWF0IjoxNzI2ODQxMDk3LCJleHAiOjE3MjY4NDQ2OTd9.wvNEkNBzWeSifcjyBO5K2aNK_EH8SF2rS8ASrHk92B0
+
+###
+
+### Eliminar Pedido (Solo Admin)
+DELETE http://localhost:9000/pedidos/2
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwiaWF0IjoxNzI2ODQxMDk3LCJleHAiOjE3MjY4NDQ2OTd9.wvNEkNBzWeSifcjyBO5K2aNK_EH8SF2rS8ASrHk92B0
